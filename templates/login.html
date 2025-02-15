@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .box {
+            background: white;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .box h3 {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+
+        .box p {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .phone-input {
+            display: flex;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .phone-input input {
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+        .login {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            background:black;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            
+        }
+
+    
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h3><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg" alt="ub" height="30px"> </h3>
+        <h3 align="left">Enter your name.</h3>
+        <div class="phone-input">
+            <input type="text" placeholder="name">
+        </div>
+        <h3 align="left">Enter your password.</h3>
+        <div class="phone-input">
+            <input type="text" placeholder="password">
+        </div>
+        <button class="login">Login</button>
+        <p class="footer">New user?<a href="http://127.0.0.1:5500/templates/register.html">Register</a></p>
+        <p class="footer">By continuing, you agree to our <a href="#">T&C</a> and <a href="#">Privacy</a> policy.</p>
+        
+    </div>
+
+</body>
+</html>
