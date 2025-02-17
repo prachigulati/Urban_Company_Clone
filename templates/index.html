@@ -5,6 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      .footer {
+          background-color: rgba(245, 245, 245, 1.00);
+          padding: 40px 60px;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          /* border-top: 1px solid #ccc; */
+          position: relative;
+      }
+      .footer .logo {
+          position: absolute;
+          top: 20px;
+          left: 60px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+      .footer .logo img {
+          height: 50px;
+      }
+      .footer .logo span {
+          font-size: 24px;
+          font-weight: bold;
+          color: #000;
+      }
+      .footer .section {
+          margin: 20px;
+          margin-top: 80px;
+      }
+      .footer h4 {
+          margin-bottom: 15px;
+          color: #333;
+      }
+      .footer ul {
+          list-style: none;
+          padding: 0;
+      }
+      .footer ul li a {
+          text-decoration: none;
+          color: #555;
+          display: block;
+          margin: 5px 0;
+          transition: color 0.3s;
+      }
+      .footer ul li a:hover {
+          color: #000;
+      }
+      .social-icons {
+          display: flex;
+          gap: 15px;
+          margin-top: 15px;
+      }
+      .social-icons a {
+          color: #555;
+          font-size: 24px;
+          transition: color 0.3s;
+      }
+      .social-icons a:hover {
+          color: #000;
+      }
+      .app-links img {
+          height: 50px;
+          width: 150px;
+          margin: 10px 0;
+      }
+      .footer-bottom {
+          text-align: center;
+          padding: 20px;
+          /* border-top: 1px solid #ccc; */
+          color: #777;
+          font-size: 14px;
+      }
+  </style>
   </head>
 <body>
     <!-- Navbar Starts-->
@@ -181,7 +255,55 @@
 
 
     <!-- footer starts -->
-    
+    <footer class="footer"  style="margin-top: 80px;">
+      <div class="logo">
+          <img src="https://media.glassdoor.com/sqll/1066580/urban-company-squarelogo-1610444207180.png" alt="UC Logo">
+          <span>Urban Company</span>
+      </div>
+      <div class="section">
+          <h4>Company</h4>
+          <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Terms & conditions</a></li>
+              <li><a href="#">Privacy policy</a></li>
+              <li><a href="#">Anti-discrimination policy</a></li>
+              <li><a href="#">UC impact</a></li>
+              <li><a href="#">Careers</a></li>
+          </ul>
+      </div>
+      <div class="section">
+          <h4>For customers</h4>
+          <ul>
+              <li><a href="#">UC reviews</a></li>
+              <li><a href="#">Categories near you</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact us</a></li>
+          </ul>
+      </div>
+      <div class="section">
+          <h4>For partners</h4>
+          <ul>
+              <li><a href="#">Register as a professional</a></li>
+          </ul>
+      </div>
+      <div class="section">
+          <h4>Social links</h4>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div class="app-links">
+              <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+          </div>
+      </div>
+      <hr width="1200px" style="margin-left: 80px;">
+      <div class="footer-bottom " style="margin-top: 30px;">
+        &copy; Copyright 2024 Urban Company. All rights reserved. | CIN: U74140DL2014PTC274413
+    </div>
+    </footer>
     <!-- footer ends -->
 </body>
 </html>
