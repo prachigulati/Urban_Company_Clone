@@ -65,22 +65,22 @@
     </style>
 </head>
 <body>
-
+    <form action="/login" method="POST">
     <div class="box">
         <h3><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg" alt="ub" height="30px"> </h3>
         <h3 align="left">Enter your name.</h3>
         <div class="phone-input">
-            <input type="text" placeholder="name">
+            <input type="text" placeholder="name", name="name">
         </div>
         <h3 align="left">Enter your password.</h3>
         <div class="phone-input">
-            <input type="text" placeholder="password">
+            <input type="text" placeholder="password", name="password">
         </div>
-        <button class="login">Login</button>
-        <p class="footer">New user?<a href="register.html">Register</a></p>
+        <button class="login", type="submit", name="submit">Login</button>
+        <p class="footer">New user?<a href="/register">Register</a></p>
         <p class="footer">By continuing, you agree to our <a href="#">T&C</a> and <a href="#">Privacy</a> policy.</p>
         
     </div>
-
+</form>
 </body>
 </html>
