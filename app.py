@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash , redirect, url_for, session # type: ignore
+from flask import Flask, render_template, request, flash , redirect, url_for, session , flash # type: ignore
 from datetime import timedelta
 # from flask_sqlalchemy import SQLAlchemy
 
@@ -32,22 +32,26 @@ def login():
         session.permanent = True
         user=request.form["nm"]
         session["user"]=user
+        flash("Login Successful!","info")
         return redirect(url_for("user"))
     else:
         if "user" in session:
+            flash("Already Logged In!","info")
             return redirect(url_for("user"))
         return render_template('login.html')
-    
 @app.route("/user")
 def user():
     if "user" in session:
         user=session["user"]
-        return f"<h1>{user} , you are logged in!</h1>"
+        return render_template("user.html",user=user)
     else:
         return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
+    if "user" in session:
+        user = session["user"]
+        flash("You have been logged out!","info")
     session.pop("user",None)
     return redirect(url_for("login"))
 

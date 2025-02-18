@@ -7,6 +7,13 @@
 <form action="/login"  method="POST">
     <div class="box">
         <h3><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg" alt="ub" height="30px"> </h3>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p style="font-size: x-large; font-weight: 600;color:black;">{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <h3 align="left">Enter your name.</h3>
         <div class="phone-input">
             <input type="text" placeholder="name", name="nm">

@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+{% block title %}Login page{% endblock%}
+{% block navbar %}
+{{super()}}
+{% endblock%}
+{% block content%}
+<div class="box">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p style="font-size: x-large; font-weight: 600;color:black;">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<p>Welcome, {{user}}</p>
+<form action="/logout">
+    <button class="logout", type="submit", name="sub">Logout</button>
+</form>
+</div>
+{% endblock %}
+{% block styles %}
+<style>
+    body {
+        background-color: rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+    .box {
+        margin-left: 490px;
+        margin-top: 100px;
+        background: white;
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+    }
+    .box h3 {
+        margin: 10px 0;
+        font-size: 22px;
+    }
+    .box p {
+        color: gray;
+        font-size: 14px;
+    }
+    .logout {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        border: none;
+        background:black;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        
+    } 
+</style>
+{% endblock %}
