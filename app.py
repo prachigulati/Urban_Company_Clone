@@ -1,18 +1,17 @@
 from flask import Flask, render_template, request  # type: ignore
-from flask_sqlalchemy import SQLAlchemy
-import bcrypt # type: ignore
+# from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-db= SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# db= SQLAlchemy(app)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100),nullable=False)
-    password = db.Column(db.String(100))
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(100),nullable=False)
+#     password = db.Column(db.String(100))
 
-    def __init__(self,password):
-        self.password=bcrypt.hashpw(password.encode(''))
+#     def __init__(self,password):
+#         self.password=bcrypt.hashpw(password.encode(''))
         
 @app.route('/')
 def home():
