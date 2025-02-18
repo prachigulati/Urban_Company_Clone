@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, flash , redirect, url_for, session # type: ignore
+from datetime import timedelta
 # from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
 app.secret_key= "xyz"
+app.permanent_session_lifetime=timedelta(minutes=5)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 # db= SQLAlchemy(app)
 
@@ -27,6 +29,7 @@ def register():
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method=="POST":
+        session.permanent = True
         user=request.form["nm"]
         session["user"]=user
         return redirect(url_for("user"))
