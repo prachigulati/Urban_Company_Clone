@@ -7,21 +7,17 @@
 <form action="/register" method="POST">
     <div class="box">
         <h3><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1687285683825-e6cf23.jpeg" alt="ub" height="30px"> </h3>
-        <h3 align="left">Enter your name.</h3>
-        <div class="phone-input">
-            <input type="text" placeholder="name">
-        </div>
         <h3 align="left">Enter your username.</h3>
         <div class="phone-input">
-            <input type="text" placeholder="username">
+            <input type="text" placeholder="username" name="username" required>
         </div>
         <h3 align="left">Enter your password.</h3>
         <div class="phone-input">
-            <input type="text" placeholder="password">
+            <input type="text" placeholder="password" name="password" required>
         </div>
         <h3 align="left">Confirm your password</h3>
         <div class="phone-input">
-            <input type="text" placeholder="renter your password">
+            <input type="text" placeholder="renter your password" required>
         </div>
         <button class="login">Continue</button>
         <a href="/login">Login</a>
