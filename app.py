@@ -31,6 +31,10 @@ class User(db.Model):
 def home():
     return render_template('index.html')
 
+@app.route('/panels')
+def panels():
+    return render_template('panels.html')
+
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method=="POST":

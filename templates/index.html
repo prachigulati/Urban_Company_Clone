@@ -91,7 +91,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Beauty</a>
               </li>
               <li class="nav-item" style="margin-right: 20px;">
-                <a class="nav-link" href="#">Decor</a>
+                <a class="nav-link" href="{{ url_for('panels') }}">Panels</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Native</a>
@@ -244,8 +244,10 @@
 <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1730813300631-fc044e.jpeg" style="margin-left: 145px; margin-top: 80px;">
 </section>
 <!-- center ends -->
+{% endblock%}
 
 
+{% block footer%}
 <!-- footer starts -->
     <footer class="footer"  style="margin-top: 80px;">
       <div class="logo">
@@ -296,7 +298,7 @@
         &copy; Copyright 2024 Urban Company. All rights reserved. | CIN: U74140DL2014PTC274413
     </div>
     </footer>
+    {% endblock %}
 <!-- footer ends -->
-    {% endblock%}
 </body>
 </html>
