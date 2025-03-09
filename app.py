@@ -39,6 +39,10 @@ def panels():
 def native():
     return render_template('native.html')
 
+@app.route('/emptyCart')
+def emptyCart():
+    return render_template('emptyCart.html')
+
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method=="POST":
