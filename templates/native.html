@@ -1,0 +1,107 @@
+{% extends "index.html" %}
+{% block title %}Native{% endblock%}
+{% block navbar %}
+{{super()}}
+{% endblock%}
+
+
+{% block content %}
+<section  style="margin-top: 50px; margin-left: 145px;">
+    <div>
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736419276460-99afd2.jpeg" height="400px" width="1250px">
+    </div>
+    <h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px;margin-top: 40px;"> Best-in-class features</h2>
+    <div style="position: relative;">
+        <button onclick="scrollContentLeft('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
+        display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;
+        font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button onclick="scrollContentRight('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;
+        align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;
+        color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        <div id="scroll-container-1" class="scroll-container" style="display: flex; flex-direction: row; height: 630px;width: 1250px; margin-top: 45px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
+            <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582565075-6c8698.jpeg" height="550px" width="390px"></div>
+            <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582588281-4d6e51.jpeg" height="550px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582583117-f3fe55.jpeg" height="550px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582579114-967873.jpeg"  height="550px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582575130-a10178.jpeg"  height="550px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729582569314-1e8653.jpeg"  height="550px" width="390"></div>
+        </div>
+        </div>
+        <!-- first section ends -->
+        
+        <div style="margin-top: -45px;margin-left: 10px;">
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736419288589-bf9b57.jpeg" height="400px" width="1220px">
+        </div>
+
+        <!-- second section -->
+        <h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px; margin-top: 40px;margin-bottom: -10px;">All intelligent features</h2>
+        <div style="position: relative;">
+            <button onclick="scrollContentLeft('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;
+            border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;
+            cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button onclick="scrollContentRight('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
+            display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;
+            cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        <div id="scroll-container-2" class="scroll-container" style="display: flex; flex-direction: row; height: 600px;width: 1250px; margin-top: 50px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729585400527-2811fe.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583343127-a159ca.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583339154-821ff9.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583334981-f0c81c.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583330394-1ebbf7.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583326489-57e778.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583322295-78684a.jpeg"  height="520px" width="390"></div>
+            <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1729583317252-43ca1f.jpeg"  height="520px" width="390"></div>
+        </div>
+        </div>
+        <!-- second section ends -->
+
+
+        <div style="margin-top: -45px;margin-left: 10px;margin-bottom: -35px;">
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1717589735029-bb454b.jpeg" height="600px" width="1220px">
+        </div>
+
+        <!-- script for button functioning -->
+<script>
+    function scrollContentLeft(containerId) {
+        let container = document.getElementById(containerId);
+        if (container) {
+            container.scrollBy({ left: -1250, behavior: 'smooth' });
+        } else {
+            console.error("Container not found:", containerId);
+        }
+    }
+    function scrollContentRight(containerId) {
+        let container = document.getElementById(containerId);
+        if (container) {
+            container.scrollBy({ left: 1250, behavior: 'smooth' });
+        } else {
+            console.error("Container not found:", containerId);
+        }
+    }
+    </script>
+<!-- script ends -->
+</section>
+{% endblock %}
+
+
+
+{% block footer %}
+{{super()}}
+{% endblock%}
+

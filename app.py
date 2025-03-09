@@ -35,6 +35,10 @@ def home():
 def panels():
     return render_template('panels.html')
 
+@app.route('/native')
+def native():
+    return render_template('native.html')
+
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method=="POST":
