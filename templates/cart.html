@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Company - Get Expert Professional Services at Home in Delhi NCR</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvsiCUd5RxzxOhozbW-uRfYvWsVOkyFI4wlw&s">
 </head>
 <body>
+    {% if cart_items %}
+    <h1>Your Cart</h1>
+        <ul>
+        {% for item, quantity in cart_items %}
+    <div>
+        <p>{{ item.name }} - ₹{{ item.price }} x {{ quantity }}</p>
+        <a href="{{ url_for('add_to_cart', item_id=item.id) }}">➕</a>
+        <a href="{{ url_for('remove_from_cart', item_id=item.id) }}">➖</a>
+    </div>
+{% endfor %}
+</ul>
+<p>Total Price: ₹{{ total_price }}</p>
+    {% else %}
     <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"onclick="goBack()" fill="#0F0F0F" viewBox="0 0 16 16" style="margin-left: 500px; margin-top: 10px;cursor: pointer;"><path fill="#0F0F0F" fill-rule="evenodd" d="M6.47 2.97l-4.5 4.5a.75.75 0 000 1.06l4.5 4.5 1.06-1.06-3.22-3.22h9.19v-1.5H4.31l3.22-3.22-1.06-1.06z" clip-rule="evenodd"></path></svg>
     <center><div><img src="{{url_for('static',filename='image.png')}}"></div></center>
     <div style="font-size: 20px;line-height: 28px;color: rgb(15, 15, 15);font-weight: 600;text-align: center;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Your Cart is empty</div>
     <div style="font-size: 14px;line-height: 24px;color: rgb(84, 84, 84);font-weight: 400;text-align: center;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" >Lets add some services</div>
+    {% endif %}
+    <!-- <a href="/">Continue Shopping</a> -->
     <div style="margin-top: 15px;"><center><button onclick="goBack()" style="font-size: 14px;line-height: 24px;text-align: center;font-weight: 500;text-align: center;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;background-color: white;border-radius: 6px; border:1px solid rgb(129, 126, 126); color: rgb(110, 66, 229);padding: 5px 10px 5px 10px; border-color: rgb(224, 222, 222);cursor: pointer;" >Explore services</button></center></div>
-
-
-<script>
-    function goBack(){
-        window.history.back()
-    }
-</script>
+    <script>
+        function goBack(){
+            window.location.href = '/';
+        }
+    </script>
 </body>
 </html>

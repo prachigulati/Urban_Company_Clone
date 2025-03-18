@@ -1,70 +1,70 @@
-from flask import Flask, render_template, request, flash , redirect, url_for, session  # type: ignore
-from datetime import timedelta #importing timedelta for session timeout
-from flask_sqlalchemy import SQLAlchemy  #importing Flask-SQLAlchemy for database handeling
-from werkzeug.security import generate_password_hash, check_password_hash  #for password hashing ans securing
+from flask import Flask, render_template, request, flash, redirect, url_for, session
+from datetime import timedelta
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_migrate import Migrate
 
+# Configure the app
+app = Flask(__name__)
+app.secret_key = "xyz"
+app.permanent_session_lifetime = timedelta(minutes=5)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-#configure the app
-app=Flask(__name__)   #created a flask application instance
-app.secret_key= "xyz"    #secret key for session management and security
-app.permanent_session_lifetime=timedelta(minutes=5)   #session timeout
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  #database URI for SQLite
-db= SQLAlchemy(app)   #initialize SQLAlchemy with the app
-
-
-#create a model
+# User model
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True) 
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), nullable=False)
     password_hash = db.Column(db.String(150), nullable=False)
-
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password)  #method to set a hashed password
-    
+        self.password_hash = generate_password_hash(password)
     def get_password(self, password):
-        return check_password_hash(self.password_hash, password)  #method to check the password
-# The user class represents a table in the database with columns id, username, and password_hash.
+        return check_password_hash(self.password_hash, password)
 
+# Item model
+class Item(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    image = db.Column(db.String(200), nullable=False)
 
-#creating routes
-@app.route('/')   #defines the url path for the home page
+# Cart model
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False, default=1)  # Added quantity
+
+# Routes
+@app.route('/')
 def home():
-    return render_template('index.html')
+    items = Item.query.all()
+    return render_template('index.html', items=items)
 
-@app.route('/panels')
-def panels():
-    return render_template('panels.html')
-
-@app.route('/native')
-def native():
-    return render_template('native.html')
-
-@app.route('/emptyCart')
-def emptyCart():
-    return render_template('emptyCart.html')
-
-@app.route('/register', methods=['GET','POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method=="POST":
-        username = request.form['username']   #gets username from the form
-        password = request.form['password']   #gets password from the form
-        user = User(username=username)   #User instance
-        user.set_password(password)   #set hashed pass
-        db.session.add(user)   #add the user to databse session
-        db.session.commit()    #commit the session to save the user
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        user = User(username=username)
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
         flash('Registration successful! Please log in.', 'success')
         return redirect(url_for('login'))
     return render_template('register.html')
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
-        user = User.query.filter_by(username=username).first()   #Query the user from the database
-        if user and user.get_password(password):   #validate the pass
-            session.permanent = True   #this makes the session permanent
-            session['user'] = user.username   #this stores the username in session
+        user = User.query.filter_by(username=username).first()
+        if user and user.get_password(password):
+            session.permanent = True
+            session['user'] = user.username
+            session['user_id'] = user.id
             flash("Login Successful!", "info")
             return redirect(url_for("user"))
         else:
@@ -77,20 +77,83 @@ def login():
 @app.route("/user")
 def user():
     if "user" in session:
-        user=session["user"]  #get the username from session
-        return render_template("user.html",user=user)  #rendering the user page with username
+        user = session["user"]
+        return render_template("user.html", user=user)
     else:
         return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
-    if "user" in session:
-        user = session["user"]
-        flash("You have been logged out!","info")
-    session.pop("user",None)  #to remove the user from session
+    session.pop("user", None)
+    session.pop("user_id", None)
+    flash("You have been logged out!", "info")
     return redirect(url_for("login"))
+
+# ADD TO CART ROUTE
+@app.route('/add_to_cart/<int:item_id>')
+def add_to_cart(item_id):
+    if 'user_id' not in session:
+        flash('You need to login to add items to the cart.', 'warning')
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+    existing_cart_item = Cart.query.filter_by(user_id=user_id, item_id=item_id).first()
+    if existing_cart_item:
+        existing_cart_item.quantity += 1
+    else:
+        new_cart_item = Cart(user_id=user_id, item_id=item_id, quantity=1)
+        db.session.add(new_cart_item)
+    db.session.commit()
+    # flash('Item added to cart successfully!', 'success')
+    return redirect(url_for('view_cart'))
+
+# REMOVE FROM CART ROUTE
+@app.route('/remove_from_cart/<int:item_id>')
+def remove_from_cart(item_id):
+    if 'user_id' not in session:
+        flash('You need to login to modify the cart.', 'warning')
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+    cart_item = Cart.query.filter_by(user_id=user_id, item_id=item_id).first()
+    if cart_item:
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
+        else:
+            db.session.delete(cart_item)
+        db.session.commit()
+    # flash('Item removed from cart successfully!', 'info')
+    return redirect(url_for('view_cart'))
+
+@app.route('/cart')
+def view_cart():
+    if 'user_id' not in session:
+        flash('Please log in to view your cart.', 'warning')
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+    cart_items = db.session.query(Item, Cart.quantity).join(Cart).filter(Cart.user_id == user_id).all()
+    total_price = sum(item.price * quantity for item, quantity in cart_items)
+    return render_template('cart.html', cart_items=cart_items, total_price=total_price)
+
+@app.route('/beauty')
+def beauty():
+    return render_template('beauty.html')
+
+@app.route('/panels')
+def panels():
+    return render_template('panels.html')
+
+@app.route('/native')
+def native():
+    return render_template('native.html')
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()  #create the database tables
+        db.create_all()
+        if not Item.query.first():
+            sample_items = [
+                Item(name='Item 1', price=10.0, image="https://example.com/item1.jpg"),
+                Item(name='Item 2', price=20.0, image="https://example.com/item2.jpg"),
+                Item(name='Item 3', price=30.0, image="https://example.com/item3.jpg")
+            ]
+            db.session.bulk_save_objects(sample_items)
+            db.session.commit()
     app.run(debug=True)

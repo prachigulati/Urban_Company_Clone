@@ -1,167 +1,141 @@
 {% extends "index.html" %}
-{% block navbar %}
-{{super()}}
-{% endblock%}
+{% block navbar %}{{super()}}{% endblock%}
 {% block content %}
 
 <section style="margin-top: 50px; margin-left: 145px;">
-<!-- first section -->
-<h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px;">Built for every space</h2>
-<div style="position: relative;">
-<button onclick="scrollContentLeft('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
-display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;
-font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
-        <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-</button>
-<button onclick="scrollContentRight('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;
-align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;
-color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
-<div id="scroll-container-1" class="scroll-container" style="display: flex; flex-direction: row; height: 630px;width: 1250px; margin-top: 50px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
-    <div class="image-clickable" onclick="showBox(1)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273518035-1a18ef.jpeg" height="520px" width="390px"></div>
-    <div class="image-clickable" onclick="showBox(2)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273400427-c1743f.jpeg" height="520px" width="390"></div>
-    <div class="image-clickable" onclick="showBox(3)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273496859-b41719.jpeg" height="520px" width="390"></div>
-    <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273415670-ad859a.jpeg"  height="520px" width="390"></div>
-</div>
-</div>
-<!-- first section ends -->
 
-
-<!-- second section -->
-<h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px;">Beautiful walls, any occasion</h2>
-<div style="position: relative;">
-    <button onclick="scrollContentLeft('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;
-    border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;
-    cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
-        <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-</button>
-<button onclick="scrollContentRight('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
-    display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;
-    cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
-<div id="scroll-container-2" class="scroll-container" style="display: flex; flex-direction: row; height: 600px;width: 1250px; margin-top: 50px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
-    <div class="image-clickable" onclick="showBox(4)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273514500-d737aa.jpeg" height="520px" width="390px"></div>
-    <div class="image-clickable" onclick="showBox(5)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273505094-907913.jpeg" height="520px" width="390"></div>
-    <div class="image-clickable" onclick="showBox(6)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273493553-75792f.jpeg" height="520px" width="390"></div>
-    <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273415670-ad859a.jpeg"  height="520px" width="390"></div>
-</div>
-</div>
-<!-- second section ends -->
-
-
-<!-- third section -->
-<h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px;">For every decor style</h2>
-<div style="position: relative;">
-    <button onclick="scrollContentLeft('scroll-container-3')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;
-    align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;
-    font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
-            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-</button>
-<button onclick="scrollContentRight('scroll-container-3')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
-    display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;
-    cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
-<div id="scroll-container-3" class="scroll-container-3" style=" display: flex; flex-direction: row; height: 600px;width: 1250px; margin-top: 50px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
-    <div class="image-clickable" onclick="showBox(7)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273511309-ba7840.jpeg" height="520px" width="390px"></div>
-    <div class="image-clickable" onclick="showBox(8)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273502111-b81a69.jpeg" height="520px" width="390"></div>
-    <div class="image-clickable" onclick="showBox(9)"><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273490349-affaf7.jpeg" height="520px" width="390"></div>
-    <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273415670-ad859a.jpeg"  height="520px" width="390"></div>
-</div>
-</div>
-<!-- third ends -->
-
-
-
-<!-- pop up container -->
+    <!-- pop up container -->
 <div class="popup-container" id="popupContainer">
     <div class="box" id="popupBox" style="overflow-y: scroll;">
         <div style="margin-left: -400px;"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" onclick="hideBox()" fill="#0F0F0F" viewBox="0 0 16 16" style="margin-top: 10px;cursor: pointer;"><path fill="#0F0F0F" fill-rule="evenodd" d="M6.47 2.97l-4.5 4.5a.75.75 0 000 1.06l4.5 4.5 1.06-1.06-3.22-3.22h9.19v-1.5H4.31l3.22-3.22-1.06-1.06z" clip-rule="evenodd"></path></svg></div>
         <img src="" width="460px" id="pop-up-img-1" style="margin-top: 10px;">
         <img src="" width="460px" style="margin-top: -10px;" id="pop-up-img-2">
-        <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg" width="460px"></div>
-        <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg" width="460px"></div>
-    </div>
+        <img src="" width="460px" id="pop-up-img-3" style="cursor: pointer;">
+        <img src="" width="460px" id="pop-up-img-4">
+        </div>
     <span class="close-btn" onclick="hideBox()">&times;</span>
 </div>
 <!-- pop up container ends -->
 
 
-
-
-<!-- script for button functioning -->
+<!-- Function for Section Creation -->
 <script>
+    function createSection(title, containerId, images) {
+        let sectionHTML=`
+        <h2 style="font-size: 36px;line-height: 44px;color: rgb(15, 15, 15);text-decoration-line: none;text-transform: none;font-weight: 600;text-align: left;margin-left: 8px;">${title}</h2>
+        <div style="position: relative;">
+        <button onclick="scrollContentLeft('${containerId}')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;
+        display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;
+        font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button onclick="scrollContentRight('${containerId}')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;
+        align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;
+        color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-50%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        <div id="${containerId}" class="scroll-container" style="display: flex; flex-direction: row; height: 630px;width: 1250px; margin-top: 50px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;">
+            ${images.map(img => `<div class='image-clickable' onclick="showBox(${img.index})">
+                <img src="${img.url}" height="520px" width="390px">
+                </div>`).join('')
+                }
+                <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273415670-ad859a.jpeg"  height="520px" width="390"></div>
+            </div>
+        </div>
+        `;
+        document.getElementById('dynamic-sections').innerHTML += sectionHTML;
+    }
+
     function scrollContentLeft(containerId) {
-        let container = document.getElementById(containerId);
-        if (container) {
-            container.scrollBy({ left: -400, behavior: 'smooth' });
-        } else {
-            console.error("Container not found:", containerId);
-        }
+        document.getElementById(containerId).scrollBy({ left: -1600, behavior: 'smooth' });
     }
     function scrollContentRight(containerId) {
-        let container = document.getElementById(containerId);
-        if (container) {
-            container.scrollBy({ left: 400, behavior: 'smooth' });
-        } else {
-            console.error("Container not found:", containerId);
-        }
+        document.getElementById(containerId).scrollBy({ left: 1600, behavior: 'smooth' });
     }
+
+    window.onload = function () {
+        createSection("Built for every space", 'scroll-container-1', [
+            { index: 1, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273518035-1a18ef.jpeg" },
+            { index: 2, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273400427-c1743f.jpeg" },
+            { index: 3, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273496859-b41719.jpeg" },
+        ]);
+        createSection("Beautiful walls, any occasion", 'scroll-container-2', [
+            { index: 4, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273514500-d737aa.jpeg" },
+            { index: 5, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273505094-907913.jpeg" },
+            { index: 6, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273493553-75792f.jpeg" },
+        ]);
+        createSection("For every decor style", 'scroll-container-3', [
+            { index: 7, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273511309-ba7840.jpeg" },
+            { index: 8, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273502111-b81a69.jpeg" },
+            { index: 9, url: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273490349-affaf7.jpeg" },
+        ]);
+    }
+
     function showBox(index) {
         let popupContainer = document.getElementById("popupContainer");
         let popupBox = document.getElementById("popupBox");
         let img1 = document.getElementById("pop-up-img-1");
         let img2 = document.getElementById("pop-up-img-2");
+        let img3 = document.getElementById("pop-up-img-3");
+        let img4 = document.getElementById("pop-up-img-4");
         switch (index) {
         case 1:
             img1.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739271121323-6ea0d8.jpeg";
             img2.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739271124943-523d47.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 2:
             img1.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739266885196-aa4452.jpeg";
             img2.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739270650483-bb6d29.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 3:
             img1.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739271318720-a5937e.jpeg";
             img2.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739271326696-35aff9.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 4:
             img1.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739272417594-4af60b.jpeg";
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739272425670-6acf58.jpeg" ;
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 5:
             img1.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1740120513529-5f9c8b.jpeg";
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1740120548330-01988c.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 6:
             img1.src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1740120862593-635314.jpeg" ;
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_600,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1740120542234-9ee8ab.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 7:
             img1.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739272958139-a4b4b7.jpeg";
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739272970572-db9367.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 8:
             img1.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273112133-48334b.jpeg";
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273119283-4e196b.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
         case 9:
             img1.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273193845-6ae520.jpeg";
             img2.src= "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739273202645-03221b.jpeg";
+            img3.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267543614-8fbc53.jpeg";
+            img4.src = "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1739267551287-c9f527.jpeg";
             break;
     }
         document.body.style.overflow = "hidden";
@@ -170,6 +144,7 @@ color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-
         popupBox.style.transform = "scale(1)";
         popupBox.style.opacity = "1";
     }
+
     function hideBox() {
         let popupContainer = document.getElementById("popupContainer");
         let popupBox = document.getElementById("popupBox");
@@ -179,41 +154,42 @@ color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-
         popupBox.style.display = "none";
         popupContainer.style.display = "none";
     }
-    </script>
-<!-- script ends -->
 
-</section>
-{% endblock %}
+</script>
 
-
-{% block styles %}
-{{super()}}
+<div id="dynamic-sections"></div>
 <style>
+    body {
+        overflow-x: hidden;
+    }
     .popup-container {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-    }
-    .box {
-        display: none;
-        margin-top: 60px;
-        width: 500px;
-        height: 600px;
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        transform: scale(1.5);
-        opacity: 0;
-        transition: transform 0.3s ease-in-out,opacity 0.3s ease-in-out;
-        position: relative;
-    }
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+}
+.box {
+    display: none;
+    margin-top: 60px;
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transform: scale(1.5);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: relative;
+    z-index: 10000;
+}
+
     .close-btn {
         position: absolute;
         top: 35px;
@@ -235,5 +211,5 @@ color: black;position: absolute; right: 120px; top: 45%; transform: translateY(-
         cursor: pointer;
     }
 </style>
+</section>
 {% endblock %}
-

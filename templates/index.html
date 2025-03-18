@@ -8,80 +8,84 @@
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvsiCUd5RxzxOhozbW-uRfYvWsVOkyFI4wlw&s">
     {% block styles%}
     <style>
-      .footer {
-          background-color: rgba(245, 245, 245, 1.00);
-          padding: 40px 60px;
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          position: relative;
-      }
-      .footer .logo {
-          position: absolute;
-          top: 20px;
-          left: 60px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-      }
-      .footer .logo img {
-          height: 50px;
-      }
-      .footer .logo span {
-          font-size: 24px;
-          font-weight: bold;
-          color: #000;
-      }
-      .footer .section {
-          margin: 20px;
-          margin-top: 80px;
-      }
-      .footer h4 {
-          margin-bottom: 15px;
-          color: #333;
-      }
-      .footer ul {
-          list-style: none;
-          padding: 0;
-      }
-      .footer ul li a {
-          text-decoration: none;
-          color: #555;
-          display: block;
-          margin: 5px 0;
-          transition: color 0.3s;
-      }
-      .footer ul li a:hover {
-          color: #000;
-      }
-      .social-icons {
-          display: flex;
-          gap: 15px;
-          margin-top: 15px;
-      }
-      .social-icons a {
-          color: #555;
-          font-size: 24px;
-          transition: color 0.3s;
-      }
-      .social-icons a:hover {
-          color: #000;
-      }
-      .app-links img {
-          height: 50px;
-          width: 150px;
-          margin: 10px 0;
-      }
-      .footer-bottom {
-          text-align: center;
-          padding: 20px;
-          color: #777;
-          font-size: 14px;
-      }
+        .footer {
+            margin-top: 90px;
+            padding: 0;
+            background-color: #f3f3f3;
+            padding: 40px 150px;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .footer-logo {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .footer-logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 200%;
+        }
+        .footer .section {
+            flex: 1;
+            min-width: 300px;
+            margin: 20px;
+        }
+        .footer h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li {
+            margin: 5px 0;
+            color: #555;
+        }
+        .footer ul li a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+        .footer ul li a:hover {
+            color: #000;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-icons a {
+            color: #555;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #000;
+        }
+        .app-links img {
+            height: 35px;
+            margin: 5px 0;
+        }
+        .footer-bottom {
+            padding: 15px;
+            color: #777;
+            font-size: 14px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
   </style>
   {% endblock%}
   </head>
-<body>{% block navbar %}
+<body>
+  {% block navbar %}
     <!-- Navbar Starts-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: -8px;  background-color: white;border:none;border-bottom: none; box-shadow: none;outline: none;">
         <div class="container-fluid" style="background-color:white ;font-size: 14px;line-height: 20px;color: rgba(84, 84, 84, 1.00);font-weight: 400;text-align: center; padding-top: 20px;padding-bottom: 20px;margin-left: 145px;">
@@ -89,7 +93,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 40px;">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
               <li class="nav-item" style="margin-right: 20px;">
-                <a class="nav-link active" aria-current="page" href="#">Beauty</a>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('beauty') }}">Beauty</a>
               </li>
               <li class="nav-item" style="margin-right: 20px;">
                 <a class="nav-link" href="{{ url_for('panels') }}">Panels</a>
@@ -106,7 +110,7 @@
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('emptyCart') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPC55O_ZCCZhj58qwrGZ9B0VRWdEvT8uhqw&s" height="20" width="20" style="margin-left: -50px;" ></a>
+                  <a class="nav-link" href="{{ url_for('view_cart') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPC55O_ZCCZhj58qwrGZ9B0VRWdEvT8uhqw&s" height="20" width="20" style="margin-left: -50px;" ></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('login') }}"><img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png"  height="25" width="25"></a>
@@ -119,8 +123,17 @@
 {% endblock%}
 <!-- Navbar finish -->
 
-
 {% block content%}
+<div>
+  {% for item in items %}
+      <div>
+          <img src="{{ item.image }}" alt="{{ item.name }}" width="100">
+          <h3>{{ item.name }}</h3>
+          <p>Price: ${{ item.price }}</p>
+          <a href="/add_to_cart/{{ item.id }}">Add to Cart</a>
+      </div>
+  {% endfor %}
+</div>
       <!--first page-->
       <section style="margin-top: 50px; margin-left: 145px;">
         <div style="display: flex; flex-direction: row;">
@@ -191,115 +204,397 @@
 
 
 <!-- center  -->
+<!--container 1-->
 <section style="margin-top: 65px;">
-  <div class="banner-container"style="display: flex;gap: 20px;margin-left: 145px;margin-right: 145px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;" style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1727446476041-390a57.jpeg" alt="Native Water Purifier"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
+  <div style="position: relative;">
+    <button onclick="scrollContentLeft('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; transform: translateY(-50%); margin-left: 120px;margin-top: 180px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+          <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button onclick="scrollContentRight('scroll-container-1')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 120px; transform: translateY(-50%);margin-top: 180px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div id="scroll-container-1" class="scroll-container" style="display: flex; flex-direction: row;width: 1250px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;margin-left: 120px;">
+      <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1727446476041-390a57.jpeg" alt="Native Water Purifier"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;"></div>
+      <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769135874-461762.jpeg" alt="Urban Company Banner 3"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;"></div>
+      <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1720173604045-456ebe.jpeg" alt="AC Repair &amp; Service"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;"></div>
+      <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1701759875987-8b654d.jpeg" alt="Urban Company Banner 5" style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;"></div>
+      <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1711428209166-2d42c0.jpeg" alt="Urban Company Banner 6" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;"></div>
+      <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1678463309015-2b92d2.jpeg" alt="Urban Company Banner 7" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;"></div>
+      <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1723117999918-053994.jpeg" alt="Urban Company Banner 8" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;"></div>
+      <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769148052-743d8c.jpeg" alt="Wall Panels" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;"></div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769135874-461762.jpeg" alt="Urban Company Banner 3"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
+  </div>
+  
+  <!--conatiner 2-->
+  <h2 style="padding-left:145px;font-size: 30px;margin-top: 60px;">New and noteworthy</h2>
+    <div style="position: relative;">
+      <button onclick="scrollContentLeft('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; transform: translateY(-50%);margin-top: 140px;margin-left: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <button onclick="scrollContentRight('scroll-container-2')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 20px; transform: translateY(-50%);margin-top: 140px;margin-right: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <div id="scroll-container-2" class="scroll-container" style="display: flex; flex-direction: row;width: 1250px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;margin-left: 120px;">
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769126590-5b520b.jpeg" alt="Wall Panels"height="233px" width="233px">
+            <p>Wall panels</a></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1737357806491-4470a2.jpeg" alt="Native Water Purifier" height="233px" width="233px">
+            <p>Native Water Purifier</a></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1723808286533-2d276b.jpeg" alt="Native Smart Locks" height="233px" width="233px">
+            <p>Native Smart Locks</a></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1728650153210-eab1e5.jpeg" alt="Kitchen Cleaning" he+ight="233px" width="233px">
+            <p>Kitchen Cleaning</a></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1651040407144-95eb6e.jpeg" alt="Spa Ayurveda" height="233px" width="233px">
+            <p>Spa Ayurveda</a></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1651040420198-fe6d1d.jpeg" alt="Hair Studio for Women" height="233px" width="233px">
+            <p>Hair Studio For Women</a></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1652853823570-152440.png" alt="AC Repair &amp; Service" height="233px" width="233px">
+            <p>AC Service & Repair</a></div>
+      </div>
+  </div>
+  
+  <!--container 3-->
+  <h2 style="padding-left:145px;font-size: 30px;margin-top: 70px;">Most booked services</h2>
+  <div style="position: relative;">
+      <button onclick="scrollContentLeft('scroll-container-3')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; transform: translateY(-50%);margin-top: 140px;margin-left: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <button onclick="scrollContentRight('scroll-container-3')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 20px; transform: translateY(-50%);margin-top: 140px;margin-right: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <div id="scroll-container-3" class="scroll-container" style="display: flex; flex-direction: row;width: 1250px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;margin-left: 120px;">
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1731066070722-1f3637.jpeg" alt="Haircut for men" height="233px" width="233px">
+            <p>Haircut for Men</p><p>★4.88(486K)</p><p>₹259</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1659102409372-8ca38a.png" alt="Intense cleaning" height="233px" width="233px">
+            <p>Intense Cleaning(2 bathroom)</p><p>★4.78(2M)</p><p>₹1,1038</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1727776714128-a28056.jpeg" alt="At-home consultation" height="233px" width="233px">
+            <p>At-home consultation</p><p>★4.79(925)</p><p>₹49</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1727776714128-a28056.jpeg" alt="At-home consultation" height="233px" width="233px">
+            <p>At-home consultation</p><p>★4.79(45K)</p><p>₹49</p></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1731066064017-84baf7.jpeg" alt="Swedish stress relief massage"  height="233px" width="233px">
+            <p>Swedish stress relief massage</p><p>★4.84(166K)</p><p>₹1,299</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1731066140412-bd83ad.jpeg" alt="Deep tissue pain relief massage" height="233px" width="233px">
+            <p>Deep tissure pain relief massage</p><p>★4.84(107K)</p><p>₹1,449</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1727775432351-a85837.jpeg" alt="Sofa cleaning" height="233px" width="233px">
+            <p>Sofa cleaning</p><p>★4.86(486K)</p><p>₹549</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1731504272013-0ef836.jpeg" alt="At-home consultation" height="233px" width="233px">
+            <p>Pest control(includes utensil removal)</p><p>★4.79(98K)</p><p>₹1,098</p></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1726833934803-11747a.jpeg" alt="Swedish stress relief massage"  height="233px" width="233px">
+            <p>Classic cleaning (2 bathrooms)</p><p>★4.83(1.3M)</p><p>₹849</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1659102409372-8ca38a.png" alt="Deep tissue pain relief massage" height="233px" width="233px">
+            <p>Intense cleaning</p><p>★4.79(2M)</p><p>₹1,557</p></div>
+      </div>
+  </div>
+  <!-- </div> -->
+  </section>
+  <!--wall panels ki image-->
+  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736922795409-bece35.jpeg" style="margin-left: 145px; margin-top: 80px;height: 415px;">
+  
+  <!--salon for women-->
+  <div style="display: flex;flex-direction: row;">
+    <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Salon for women</h2>
+    <div style="align-items: end;color: rgb(96, 0, 128);margin-left: 920px;border: 2px solid #ddd;border-radius: 10px;border-radius: 5px;margin-top: 90px;width: 60px;text-align: center;padding: 5px;">See all</div>
+  </div>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Waxing</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1717397992635-09b511.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1720173604045-456ebe.jpeg" alt="AC Repair &amp; Service"style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Threading & face waxing</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1717398001090-fe3d01.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1701759875987-8b654d.jpeg" alt="Urban Company Banner 5" style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Cleanup</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1717397984511-247afe.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1711428209166-2d42c0.jpeg" alt="Urban Company Banner 6" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Manicure</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1717398005609-e19abc.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1678463309015-2b92d2.jpeg" alt="Urban Company Banner 7" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Hair care</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1717398018197-c68fcc.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1723117999918-053994.jpeg" alt="Urban Company Banner 8" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;">
+  </div>
+  
+  <!--spa for women-->
+  <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Spa for women</h2>
+  <h6 style="margin-left: 135px;color: gray;">Refresh. Rewind. Rejuvenate.</h6>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Stress relief</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143543316-c5eb5c.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div class="banner">
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769148052-743d8c.jpeg" alt="Wall Panels" style="object-fit: contain; height: 350px; width: 350px; background-color: transparent;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Pain relief</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143539186-26f4e5.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-</div>
-<h2 style="padding-left:145px;font-size: 40px;">New and noteworthy</h2>
-<div class="new-noteworthy"style="display: flex;gap: 20px;margin-left: 145px;margin-right: 145px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;" style="object-fit: contain;height: 350px;width: 350px;background-color: transparent;">
-    <div>
-        <div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1">
-            <div>
-                <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736769126590-5b520b.jpeg" alt="Wall Panels" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;">
-            </div>
-        </div>
-        <div></div>
-        <div>
-            <div style="flex:1">
-                <div style="align-items:flex-start;justify-content:flex-start">
-                    <a dir="auto" role="link" style="font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Wall Panels</a>
-                </div>
-            </div>
-        </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Natural skincare</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143553928-f5f936.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
     </div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1737357806491-4470a2.jpeg" alt="Native Water Purifier" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="link" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Native Water Purifier</a></div></div></div></div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1723808286533-2d276b.jpeg" alt="Native Smart Locks" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="link" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Native Smart Locks</a></div></div></div></div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1728650153210-eab1e5.jpeg" alt="Kitchen Cleaning" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="paragraph" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Kitchen Cleaning</p></div></div></div></div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1651040407144-95eb6e.jpeg" alt="Spa Ayurveda" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="paragraph" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Spa Ayurveda</p></div></div></div></div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1651040420198-fe6d1d.jpeg" alt="Hair Studio for Women" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="paragraph" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">Hair Studio for Women</p></div></div></div></div>
-    <div><div aria-disabled="true" data-hover-animation="sizeGrow5" data-active-animation="sizeShrink5" tabindex="-1"  style="width:233px;height:233px;overflow-x:hidden;overflow-y:hidden;border:0px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;opacity:1"><div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1652853823570-152440.png" alt="AC Repair &amp; Service" style="object-fit: contain; height: 100%; width: 100%; background-color: transparent;"></div></div><div ></div><div ><div  style="flex:1"><div style="align-items:flex-start;justify-content:flex-start"><p dir="auto" role="paragraph" style="font-family:os_semi_bold;font-size:16px;line-height:24px;color:rgba(15,15,15,1.00);text-decoration-line:none;text-transform:none;font-weight:600;text-align:left">AC Repair &amp; Service</p></div></div></div></div>
-</div>
-<img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1730813300631-fc044e.jpeg" style="margin-left: 145px; margin-top: 80px;">
-</section>
-<!-- center ends -->
+  </div>
+  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1730813300631-fc044e.jpeg" style="margin-left: 145px; margin-top: 80px;">
+  
+  <!--pest control-->
+  <div style="display: flex;flex-direction: row;">
+    <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Cleaning & pest control</h2>
+    <div style="align-items: end;color: rgb(96, 0, 128);margin-left: 900px;border: 2px solid #ddd;border-radius: 10px;border-radius: 5px;margin-top: 90px;width: 60px;text-align: center;padding: 5px;">See all</div>
+  </div>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Full home cleaning</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700129474836-c5b146.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Sofa & carpet cleaning</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700204929955-75dd47.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">General Pest control</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700141859007-d310cd.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Bathroom Cleaning</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700217115195-4b42c0.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Kitchen Cleaning</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700217150690-faf4ec.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+  </div>
+  
+  <!--glow up home-->
+  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736922795409-bece35.jpeg" style="margin-left: 145px; margin-top: 80px;height: 415px;">
+  
+  <!--appliance server-->
+  <div style="display: flex;flex-direction: row;">
+    <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Appliance & service repair</h2>
+    <div style="align-items: end;color: rgb(96, 0, 128);margin-left: 875px;border: 2px solid #ddd;border-radius: 10px;border-radius: 5px;margin-top: 90px;width: 60px;text-align: center;padding: 5px;">See all</div>
+  </div>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">AC Service & repair</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700141800784-5ca077.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Washing machine</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700142017541-7905b3.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Television</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700142103380-c88bd4.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">BGeyser</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700198936506-15c0e3.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Air Purifier</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700209775572-5a2f4a.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+  </div>
+  
+  <!--quick home repairs and conatiner 4-->
+  <div style="display: flex;flex-direction: row;">
+    <h2 style="padding-left:135px;font-size: 30px;margin-top: 100px;">Quick home repairs</h2>
+    <div style="align-items: end;color: rgb(96, 0, 128);margin-left: 920px;border: 2px solid #ddd;border-radius: 10px;border-radius: 5px;margin-top: 90px;width: 60px;text-align: center;padding: 5px;">See all</div>
+  </div>>
+  <div style="position: relative;">
+      <button onclick="scrollContentLeft('scroll-container-4')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; left: -10px; transform: translateY(-50%);margin-top: 140px;margin-left: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <button onclick="scrollContentRight('scroll-container-4')"  style="width: 50px;height: 50px;background-color: white;border-radius: 50%;display: flex;align-items: center;justify-content: center;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);border: none;cursor: pointer;font-size: 22px;font-weight: 600;color: black;position: absolute; right: 20px; transform: translateY(-50%);margin-top: 140px;margin-right: 120px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 7L15 12L10 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+      <div id="scroll-container-4" class="scroll-container" style="display: flex; flex-direction: row;width: 1250px;column-gap: 25px;overflow-x: auto;scroll-behavior: smooth;-ms-overflow-style: none;scrollbar-width: none;white-space: nowrap;padding: 10px;margin-left: 120px;">
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1727776710805-0ce8d7.jpeg" alt="Haircut for men" height="233px" width="233px">
+            <p>Drill & hang(wall decor)</p><p>★4.88(486K)</p><p>₹259</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1652172643970-9ad67b.png" alt="Intense cleaning" height="233px" width="233px">
+            <p>Tap repair</p><p>★4.78(2M)</p><p>₹1,1038</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653645917034-f5ecc5.png" alt="At-home consultation" height="233px" width="233px">
+            <p>Flush tank repair(external PVC)</p><p>★4.79(925)</p><p>₹49</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653890923765-57dea3.png" alt="At-home consultation" height="233px" width="233px">
+            <p>Jet spray installation</p><p>★4.79(45K)</p><p>₹49</p></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1701149688871-2980d1.jpeg" alt="Swedish stress relief massage"  height="233px" width="233px">
+            <p>Swith socket replacement</p><p>★4.84(166K)</p><p>₹1,299</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653632276897-4194e1.png" alt="Deep tissue pain relief massage" height="233px" width="233px">
+            <p>flush tank repair(concealed)</p><p>★4.84(107K)</p><p>₹1,449</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653892249137-8848bb.png" alt="Sofa cleaning" height="233px" width="233px">
+            <p>Cupboard hinge installation</p><p>★4.86(486K)</p><p>₹549</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653918245354-14a137.png" alt="At-home consultation" height="233px" width="233px">
+            <p>Door lock repair</p><p>★4.79(98K)</p><p>₹1,098</p></div>
+          <div ><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653918245354-14a137.png" alt="Swedish stress relief massage"  height="233px" width="233px">
+            <p>Minor wooden door repair</p><p>★4.83(1.3M)</p><p>₹849</p></div>
+          <div><img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653654473556-534625.png" alt="Deep tissue pain relief massage" height="233px" width="233px">
+            <p>IWAste pipe replacemnet</p><p>★4.79(2M)</p><p>₹1,557</p></div>
+      </div>
+  </div>
+  
+  <!--massage for men-->
+  <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Massage for men</h2>
+  <h6 style="margin-left: 135px;">Curated massages by top therapists.</h6>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Pain relief</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700135813754-417df5.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Stress relief</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700135826199-2ae5f2.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Post workout</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700135829701-85b36c.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+  </div>
+  
+  <!--lady with RO-->
+  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1734687235149-cd2754.jpeg" style="margin-left: 145px; margin-top: 80px;height: 415px;">
+  
+  <!--salon for kids and men-->
+  <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Salon for kids & men</h2>
+  <div class="spaforwomen" style="display: flex;flex-direction: row;">
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Hair cut & beard styling</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700127735237-fc713d.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Facial & cleanup</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700127746630-a2db1c.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Pedicure & manicure</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700127758209-ba8237.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
+      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Hair color & hair spa</div><div class="image-box"style="border-radius: 5px;" >
+        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1700127754257-2bc2e7.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
+      </div>
+    </div>
+  </div>
+  <!-- center ends -->
 {% endblock%}
 
-
-{% block footer%}
 <!-- footer starts -->
-    <footer class="footer"  style="margin-top: 80px;">
-      <div class="logo">
-          <img src="https://media.glassdoor.com/sqll/1066580/urban-company-squarelogo-1610444207180.png" alt="UC Logo">
-          <span>Urban Company</span>
-      </div>
+{% block footer%}
+<footer class="footer">
+  <div class="footer-logo">
+      <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_144,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1648471968852-1f2b01.png" alt="Urban Company Logo">
+  </div>
+  <div class="footer-content">
       <div class="section">
           <h4>Company</h4>
           <ul>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Terms & conditions</a></li>
-              <li><a href="#">Privacy policy</a></li>
-              <li><a href="#">Anti-discrimination policy</a></li>
-              <li><a href="#">UC impact</a></li>
-              <li><a href="#">Careers</a></li>
+              <li>About us</li>
+              <li>Terms & conditions</li>
+              <li>Privacy policy</li>
+              <li>Anti-discrimination policy</li>
+              <li>UC impact</li>
+              <li>Careers</li>
           </ul>
       </div>
       <div class="section">
           <h4>For customers</h4>
           <ul>
-              <li><a href="#">UC reviews</a></li>
-              <li><a href="#">Categories near you</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact us</a></li>
+              <li>UC reviews</li>
+              <li>Categories near you</li>
+              <li>Blog</li>
+              <li>Contact us</li>
           </ul>
       </div>
       <div class="section">
           <h4>For partners</h4>
           <ul>
-              <li><a href="#">Register as a professional</a></li>
+              <li>Register as a professional</li>
           </ul>
       </div>
       <div class="section">
           <h4>Social links</h4>
           <div class="social-icons">
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/urbancompany_UC"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/UrbanCompany/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/urbancompany/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEptCox9WFarQAAAZWImXgQsSrqIL_IkLXcrgghx8sncLr8fMwGdJurC_gq-VQRK7LTC97fjn8fs9A6aPVbPnIBo7DlaG2We4YU7V_apWXWZGDYYGN"><i class="fab fa-linkedin-in"></i></a>
           </div>
+          <pre></pre>
           <div class="app-links">
-              <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
-              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+              <a href="https://apps.apple.com/us/app/urban-company-prev-urbanclap/id1032480595?mt=8">
+                  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1648463870745-38fece.png" alt="App Store">
+              </a>
+              <pre></pre>
+              <a href="https://play.google.com/store/apps/details?id=com.urbanclap.urbanclap&referrer=af_tranid%3DQW6YaauA8A_LSL6NY36MNg%26c%3Dhome_app_buttons%26pid%3DMobileWeb">
+                  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_108,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1696419732772-28cd3d.jpeg" alt="Google Play">
+              </a>
           </div>
       </div>
-      <hr width="1200px" style="margin-left: 80px;">
-      <div class="footer-bottom " style="margin-top: 30px;">
-        &copy; Copyright 2024 Urban Company. All rights reserved. | CIN: U74140DL2014PTC274413
-    </div>
-    </footer>
+  </div>
+  <hr style="width: 1200px; background-color: rgba(227, 227, 227, 1.00);">
+  <div class="footer-bottom">
+      &copy; Copyright 2024 Urban Company. All rights reserved. | CIN: U74140DL2014PTC274413
+  </div>
+</footer>
     {% endblock %}
 <!-- footer ends -->
+
+<script>
+  function scrollContentLeft(containerId) {
+      let container = document.getElementById(containerId);
+      if (container) {
+          container.scrollBy({ left: -270, behavior: 'smooth' });
+      } else {
+          console.error("Container not found:", containerId);
+      }
+  }
+  function scrollContentRight(containerId) {
+      let container = document.getElementById(containerId);
+      if (container) {
+          container.scrollBy({ left: 270, behavior: 'smooth' });
+      } else {
+          console.error("Container not found:", containerId);
+      }
+  }
+</script>
+
 </body>
 </html>
