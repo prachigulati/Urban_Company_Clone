@@ -124,16 +124,6 @@
 <!-- Navbar finish -->
 
 {% block content%}
-<div>
-  {% for item in items %}
-      <div>
-          <img src="{{ item.image }}" alt="{{ item.name }}" width="100">
-          <h3>{{ item.name }}</h3>
-          <p>Price: ${{ item.price }}</p>
-          <a href="/add_to_cart/{{ item.id }}">Add to Cart</a>
-      </div>
-  {% endfor %}
-</div>
       <!--first page-->
       <section style="margin-top: 50px; margin-left: 145px;">
         <div style="display: flex; flex-direction: row;">
@@ -333,29 +323,22 @@
       </div>
     </div>
   </div>
-  
-  <!--spa for women-->
+
+  <!-- spa for women -->
   <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Spa for women</h2>
-  <h6 style="margin-left: 135px;color: gray;">Refresh. Rewind. Rejuvenate.</h6>
-  <div class="spaforwomen" style="display: flex;flex-direction: row;">
-    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 20px; "> 
-      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Stress relief</div><div class="image-box"style="border-radius: 5px;" >
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143543316-c5eb5c.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
-      </div>
-    </div>
-    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
-      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Pain relief</div><div class="image-box"style="border-radius: 5px;" >
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143539186-26f4e5.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
-      </div>
-    </div>
-    <div class="flex-container" style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-top: 20px;margin-left: 10px; "> 
-      <div class="text-box"style="font-size: 18px;margin-bottom: 10px;align-items:left">Natural skincare</div><div class="image-box"style="border-radius: 5px;" >
-        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700143553928-f5f936.jpeg" alt="Waxing" style="height: 230px;width: 247px;margin-top: 10px; border-radius: 5px;">
-      </div>
-    </div>
-  </div>
-  <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1730813300631-fc044e.jpeg" style="margin-left: 145px; margin-top: 80px;">
-  
+  <h6 style="margin-left: 135px;color: gray;">Refresh. Rewind. Rejuvenate.</h6> 
+      <div style="display: flex;flex-direction: row;">
+        {% for item in items %}
+            <div style="display: flex;flex-direction: column;align-items: center; border: 1px solid #ddd;border-radius: 10px;padding: 20px;width: 250px;height: 300px;margin-left: 130px;margin-top: 40px; ">
+                <img src="{{ item.image }}" alt="{{ item.name }}" width="100">
+                <h3>{{ item.name }}</h3>
+                <p>Price: ${{ item.price }}</p>
+                <a href="/add_to_cart/{{ item.id }}" style="font-size: 14px;line-height: 24px;text-align: center;font-weight: 500;text-align: center;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;background-color: white;border-radius: 6px; border:1px solid rgb(129, 126, 126); color: rgb(110, 66, 229);padding: 5px 10px 5px 10px; border-color: rgb(224, 222, 222);cursor: pointer; text-decoration: none;" >Add to Cart</a>
+            </div>
+        {% endfor%}
+</div>
+<!-- spa for women ends -->
+
   <!--pest control-->
   <div style="display: flex;flex-direction: row;">
     <h2 style="padding-left:135px;font-size: 30px;margin-top: 90px;">Cleaning & pest control</h2>

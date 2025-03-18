@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session # type: ignore
 from datetime import timedelta
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy # type: ignore
+from werkzeug.security import generate_password_hash, check_password_hash # type: ignore
+from flask_migrate import Migrate # type: ignore
 
 # Configure the app
 app = Flask(__name__)
@@ -147,13 +147,11 @@ def native():
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
-        if not Item.query.first():
-            sample_items = [
-                Item(name='Item 1', price=10.0, image="https://example.com/item1.jpg"),
-                Item(name='Item 2', price=20.0, image="https://example.com/item2.jpg"),
-                Item(name='Item 3', price=30.0, image="https://example.com/item3.jpg")
-            ]
-            db.session.bulk_save_objects(sample_items)
-            db.session.commit()
+        db.create_all()  # Ensure database tables are created
+        sample_items = [
+            {'name': 'Pain relief', 'price': 199.0, 'image': "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto/c_limit/images/growth/luminosity/1700143543316-c5eb5c.jpeg"},
+            {'name': 'Stress relief', 'price': 199.0, 'image': "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto/c_limit/images/growth/luminosity/1700143539186-26f4e5.jpeg"},
+            {'name': 'Natural Skincare', 'price': 299.0, 'image': "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto/c_limit/images/growth/luminosity/1700143553928-f5f936.jpeg"}
+        ]
+        db.session.commit()
     app.run(debug=True)
