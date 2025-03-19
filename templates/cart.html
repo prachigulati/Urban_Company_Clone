@@ -71,13 +71,9 @@
                 <div class="cart-item">
                     <img src="{{ item.image}}" alt="{{ item.name }}">
                     <div class="cart-details">
-                        <h2>{{ item.name }}</h2>
-                        <p>₹{{ item.price }} x {{ quantity }}</p>
-                        
-                    </div>
-                    <div>
-                        <a href="{{ url_for('add_to_cart', item_id=item.id) }}">➕</a>
-                        <a href="{{ url_for('remove_from_cart', item_id=item.id) }}">➖</a>
+                        <h2><a href="{{ url_for('add_to_cart', item_id=item.id) }}" style="text-decoration: none;">➕</a>{{ item.name }}<a href="{{ url_for('remove_from_cart', item_id=item.id) }}" style="text-decoration: none;">➖</a>
+                        </h2>
+                    <p>₹{{ item.price }} x {{ quantity }}</p>
                     </div>
                 </div>
             {% endfor %}

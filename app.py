@@ -7,7 +7,7 @@ from flask_migrate import Migrate # type: ignore
 # Configure the app
 app = Flask(__name__)
 app.secret_key = "xyz"
-app.permanent_session_lifetime = timedelta(minutes=5)
+app.permanent_session_lifetime = timedelta(minutes=15)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -65,8 +65,8 @@ def login():
             session.permanent = True
             session['user'] = user.username
             session['user_id'] = user.id
-            flash("Login Successful!", "info")
-            return redirect(url_for("user"))
+            #flash("Login Successful!", "info")
+            return redirect(url_for("home"))
         else:
             flash('Invalid credentials', 'danger')
     if "user" in session:
